@@ -15,8 +15,8 @@ epoch=$(date +%s)
 
 payload=$("$JQ" -n --argjson epoch "$epoch" --argjson result "$result" '
   [
-    { name: "wifi.speedtest.download.mbps",      time: $epoch, value: $result.download.median_mbps },
-    { name: "wifi.speedtest.upload.mbps",         time: $epoch, value: $result.upload.median_mbps },
+    { name: "wifi.speedtest.throughput.download",  time: $epoch, value: $result.download.median_mbps },
+    { name: "wifi.speedtest.throughput.upload",    time: $epoch, value: $result.upload.median_mbps },
     { name: "wifi.speedtest.latency.idle_ms",     time: $epoch, value: $result.idle_latency.median_ms },
     { name: "wifi.speedtest.latency.jitter_ms",   time: $epoch, value: $result.idle_latency.jitter_ms },
     { name: "wifi.speedtest.packet_loss.percent",  time: $epoch, value: $result.experimental_udp.latency.loss }
